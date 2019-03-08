@@ -1,0 +1,75 @@
+@import "/utils/wxParse/wxParse.acss";
+
+.node-page {
+  width: 100%;
+}
+
+.node-detail-content {
+  width: 100%;
+  padding: 20rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.node-detail-title {
+  width: 100%;
+  font-size: 36rpx;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-weight: 700;
+}
+
+.user-info {
+  padding: 10rpx 0;
+}
+
+.user-photo {
+  width: 60rpx;
+  height: 60rpx;
+  max-width: 60rpx;
+  max-height: 60rpx;
+  border-radius: 30rpx;
+  vertical-align: middle;
+}
+
+.usr-name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 28rpx;
+  color: #ddd;
+  padding-left: 12rpx;
+}
+
+.wxParse-p {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.75;
+  word-break: break-word;
+  font-weight: 400;
+}
+
+.wxParse-inline {
+ /* padding: 1px 20rpx;
+  margin: 22rpx 0;*/
+  font-size: 24rpx;
+  line-height: 1.25;
+  word-break: break-word;
+  font-weight: 400;
+}
+
+.reply-content {
+  width: 100%;
+  margin-top: 20rpx;
+  padding: 8rpx;
+  box-shadow: 1px 1px 1px #ccc, -1px -1px 1px #ccc;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.reply-cell {
+  margin: 20rpx 0;
+  border-bottom: 1px solid #ddd;
+}
+

@@ -1,0 +1,38 @@
+<favorite>收藏小程序，下次使用更方便</favorite>
+<view class="juejin-list" a:if="{{ !!entrylist.length }}" style="display: {{ !!entrylist.length? 'block': 'none'}}">
+  <view class="entrylist-content">
+    <view 
+      class="entrylist-cell flex flex-align-between" 
+      a:for="{{ entrylist }}" 
+      a:for-index="index" 
+      a:key="*this" 
+      data-title="{{ item.title }}"
+      data-originalUrl="{{ item.originalUrl }}" 
+      onTap="toDetail">
+      <view class="entrylist-cell-left">
+        <view class="entrylist-cell-category">
+          <text class="font-20 p-r-8"></text>
+          <text class="font-20 p-r-8 color-909090"> {{ item.user.username }}</text>
+          <text class="font-20 p-r-8"></text>
+          <text class="font-20 p-r-8 color-909090">
+            <block a:for="{{item.tags}}" a:for-index="idx" a:for-item="tagItem">
+              <text class="font-20 color-909090">{{ idx == 0? '' : '/' }} {{ tagItem.title }}</text>
+            </block>
+          </span>
+        </view>
+        <view class="entrylist-cell-title" style="max-width: {{cellWidth - 66}}px;min-width: {{cellWidth - 100}}px;">{{ item.title }}</view>
+        <view class="action-list">
+          <text class="action-comment p-r-20"><text class="iconfont iconpinglun2 font-32 p-r-8"></text>{{ item.commentsCount }}</text>
+          <text class="action-praise"><text class="iconfont iconzan2 font-28 p-r-8"></text>{{ item.collectionCount }}</text>
+        </view>
+      </view>
+      <view class="entrylist-cell-right flex flex-vertical-center">
+        <view class="shot-img">
+          <image style="background-color: #eeeeee; width: 60rpx; height:60rpx;" mode="aspectFit" src="{{ item.screenshot }}" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<import src="/templates/no-data.axml" />
+<template is="pageEmpty"  data="{{emptyData}}" />

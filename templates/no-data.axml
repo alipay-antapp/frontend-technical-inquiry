@@ -1,0 +1,20 @@
+<!-- 数据列表为空 -->
+<!--
+  <import src="/templates/no-data.axml" />
+  <template is="pageEmpty" data="{{emptyData}}" />
+ -->
+<template name='pageEmpty' >
+  <view class='null-content' a:if="{{ !!emptyData.show }}" style="width:100%; height:{{emptyData.height?(emptyData.height+'px'):'100%'}};">
+    <view class='null-box' style="text-align: center;">
+      <view class="null-data-icon">
+        <image src="/images/no-data.png" style="width: 180rpx;" mode="aspectFit"></image>
+        <!-- <text class="iconfont {{emptyData.icon}}" style="font-size: 92rpx; color: #999;"></text> -->
+      </view>
+      <view class='null-text'>{{ emptyData.text }}</view>
+
+      <view class="null-text-refresh" style=" margin-top: 40rpx;">
+        <button type="primary" plain size="mini" onTap="refreshData">刷新页面</button>
+      </view>
+    </view>
+  </view>
+</template>

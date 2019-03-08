@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cnode/cnode",
+    "pages/juejin-detail/juejin-detail",
+    "pages/node-detail/node-detail"
+  ],
+  "window": {
+    "defaultTitle": "web 前端技术查询"
+  },
+  "tabBar": {
+    "textColor": "#dddddd",
+    "selectedColor": "#49a9ee",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/index/index",
+        "name": "首页",
+        "icon": "images/juejin.png",
+        "activeIcon": "images/juejin-active.png"
+      },
+      {
+        "pagePath": "pages/cnode/cnode",
+        "name": "nodejs",
+        "icon": "images/nodejs.png",
+        "activeIcon": "images/nodejs-active.png"
+      }
+    ]
+  }
+}

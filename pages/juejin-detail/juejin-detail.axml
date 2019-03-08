@@ -1,0 +1,10 @@
+<!-- 引入模板 -->
+<import src="/utils/wxParse/wxParse.axml"/>
+<view class="juejin-detail-wrap" a:if="{{!!htmlContent}}" style="display: {{ !!htmlContent&& !!htmlContent.nodes? 'block': 'none'}}">
+  <view class="juejin-detail-content">
+    <!-- 这里data中article为bindName -->
+    <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+  </view>
+</view>
+<import src="/templates/no-data.axml" />
+<template is="pageEmpty"  data="{{emptyData}}" />

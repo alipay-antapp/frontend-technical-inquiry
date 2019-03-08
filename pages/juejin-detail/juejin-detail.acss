@@ -1,0 +1,31 @@
+
+@import "/utils/wxParse/wxParse.acss";
+.juejin-detail-wrap {
+  width: 100%;
+}
+
+.juejin-detail-content {
+  width: 100%;
+  padding: 20rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.wxParse-p {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.75;
+  word-break: break-word;
+  font-weight: 400;
+}
+
+.wxParse-inline {
+ /* padding: 1px 20rpx;
+  margin: 22rpx 0;*/
+  font-size: 24rpx;
+  line-height: 1.25;
+  word-break: break-word;
+  font-weight: 400;
+}
