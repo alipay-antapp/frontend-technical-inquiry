@@ -1,0 +1,65 @@
+
+.juejin-list {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0 20rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.entrylist-content {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.entrylist-cell {
+  width: 100%;
+  padding: 12rpx;
+  margin: 20rpx auto;
+  border-radius: 4rpx;
+  box-shadow: 1px 1px 3px #ddd, -1px -1px 3px #ddd;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.entrylist-cell:hover {
+  box-shadow: 1px 1px 3px #49a9ee, -1px -1px 3px #49a9ee;
+}
+
+.entrylist-cell-category {
+  padding: 12rpx 0;
+}
+
+.entrylist-cell .entrylist-cell-title {
+  /*min-width: 80%;*/
+  /*max-width: 80%;*/
+  /*padding-right: 20rpx;*/
+  font-size: 32rpx;
+  color: #007fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.action-list {
+  padding: 12rpx 0;
+}
+
+.action-comment {
+  font-size: 28rpx;
+  color: #b2bac2;
+  font-weight: 500;
+}
+
+.action-praise {
+  font-size: 28rpx;
+  color: #b2bac2;
+  font-weight: 500;
+}
+
+@import '/style/common.acss';
+@import '/fonts/iconfont.acss';

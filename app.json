@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/cnode/cnode",
     "pages/juejin-detail/juejin-detail",
-    "pages/node-detail/node-detail"
+    "pages/node-detail/node-detail",
+    "pages/github/github/github"
   ],
   "window": {
     "defaultTitle": "web 前端技术查询"
@@ -18,6 +19,12 @@
         "name": "首页",
         "icon": "images/juejin.png",
         "activeIcon": "images/juejin-active.png"
+      },
+      {
+        "pagePath": "pages/github/github/github",
+        "name": "github",
+        "icon": "images/home.png",
+        "activeIcon": "images/home-active.png"
       },
       {
         "pagePath": "pages/cnode/cnode",

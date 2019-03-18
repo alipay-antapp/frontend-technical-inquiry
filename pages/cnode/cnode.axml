@@ -14,9 +14,8 @@
           <text class="font-20 p-r-8 color-909090"> {{ item.author.loginname }}</text>
           <text class="font-20 p-r-8"></text>
           <text class="font-20 p-r-8 color-909090">
-            <text class="font-20 color-909090">{{ tagItem.tab }}</text
-          
-          </span>
+            <text class="font-20 color-909090">{{ item.tab }}</text>
+          </text>
         </view>
         <view class="entrylist-cell-title" style="max-width: {{cellWidth - 66}}px;min-width: {{cellWidth - 100}}px;">{{ item.title }}</view>
         <view class="action-list">

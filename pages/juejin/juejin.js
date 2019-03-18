@@ -1,19 +1,21 @@
-import { getRequest } from '/utils/request.js';
+import { dataRequest } from '/utils/request.js';
+
 Page({
   data: {
-    page: 1,
-    listData: [],
+    entrylist: [],
+    cellWidth: 300,
     emptyData: {
       icon: 'iconshuju',
       text: '暂无详细数据',
       show: false,
       height: my.getSystemInfoSync().windowHeight
-    }
+    },
+    keywords: ["腾讯","二维码","日","妈逼"]
   },
   onLoad(query) {
     // 页面加载
     let that = this;
-    that.getListData();
+    that.getData();
   },
   onReady() {
     // 页面加载完成
@@ -32,15 +34,9 @@ Page({
   },
   onPullDownRefresh() {
     // 页面被下拉
-    let that = this;
-    that.data.page = 1;
-    // that.getListData();
   },
   onReachBottom() {
     // 页面被拉到底部
-    let that = this;
-    that.data.page++;
-    // that.getListData();
   },
   onShareAppMessage() {
     // 返回自定义分享信息
@@ -50,29 +46,31 @@ Page({
       path: 'pages/index/index',
     };
   },
-  getListData() {
+  getData() {
     let that = this;
-    let baseUrl = 'https://cnodejs.org';
+    let baseUrl = 'https://timeline-merger-ms.juejin.im';
     let param = {
-      page: that.data.page
+      src: 'web',
+      uid: '',
+      device_id: '',
+      token: '',
+      limit: '20',
+      category: '5562b415e4b00c57d9b94ac8'
     }
-    let res = getRequest(baseUrl, '/api/v1/topics', param);
+    let res = dataRequest(baseUrl, '/v1/get_entry_by_timeline', param);
     res.then(result => {
-      let listData = result.data;
-      if (that.data.page != 1 && !!listData && !!listData.length) {
-        let newData = JSON.parse(JSON.stringify(that.data.listData));
-        result.data.forEach(ele => {
-          ele.title = ele.title.replace(/['二维码'|'腾讯'|'妈逼'|'操']/g, '*')
-          newData.push(ele);
-        })
-        that.setData({
-          'emptyData.show': !!listData.length? false: true,
-          listData: newData
-        })
-        return false;
-      }
+      let entrylist = [];
+      result.d.entrylist.forEach(ele => {
+        if (!!ele.original) {
+          entrylist.push(ele);
+        }
+      })
+      entrylist.forEach(ele => {
+        ele.title = ele.title.replace(/['二维码'|'腾讯'|'妈逼'|'操']/g, '*')
+      })
       that.setData({
-        listData,
+        entrylist,
+        'emptyData.show': !!entrylist.length? false: true,
         cellWidth: my.getSystemInfoSync().windowWidth
       })
     }).catch(()=>{
@@ -83,14 +81,15 @@ Page({
   },
   toDetail(e) {
     let that = this;
+    let url = e.target.dataset.originalUrl;
     let title = e.target.dataset.title;
-    let id = e.target.dataset.topicId;
+    let id = url.split('/')[4];
     my.navigateTo({
-      url: `/pages/node-detail/node-detail?topicId=${id}&title=${title}`
+      url: `/pages/juejin-detail/juejin-detail?objectId=${id}&title=${title}`
     })
   },
   refreshData() {
     let that = this;
-    that.getListData();
+    that.getData();
   }
 });

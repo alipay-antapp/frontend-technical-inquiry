@@ -1,0 +1,36 @@
+<view a:if="{{ !!listData.length }}" class="github-wrap" style="display: {{ !!listData.length? 'block': 'none'}}">
+  <view class="github-content">
+    <view 
+      class="entrylist-cell flex flex-align-between" 
+      a:for="{{ listData }}" 
+      a:for-index="index" 
+      a:key="*this" 
+      data-title="{{ item.full_name }}"
+      data-url="{{ item.html_url }}" 
+      onTap="toDetail">
+      <view class="entrylist-cell-left">
+        <view class="entrylist-cell-category">
+          <text class="font-20 p-r-8"></text>
+          <text class="font-20 p-r-8 color-909090"> {{ item.owner.login }}</text>
+          <text class="font-20 p-r-8"></text>
+          <text class="font-20 p-r-8 color-909090">
+            <text class="font-20 color-909090">{{ item.language }}</text>
+          </text>
+        </view>
+        <view class="entrylist-cell-title" style="max-width: {{cellWidth - 66}}px;min-width: {{cellWidth - 100}}px;">{{ item.full_name }}</view>
+        <view class="font-12 color-606266">{{item.description}}</view>
+        <view class="action-list">
+          <text class="action-comment p-r-20"><text class="iconfont iconpinglun2 font-32 p-r-8"></text>{{ item.forks_count }}</text>
+          <text class="action-praise"><text class="iconfont iconzan2 font-28 p-r-8"></text>{{ item.stargazers_count }}</text>
+        </view>
+      </view>
+      <view class="entrylist-cell-right flex flex-vertical-center">
+        <view class="shot-img">
+          <image style="background-color: #eeeeee; width: 60rpx; height:60rpx;" mode="aspectFit" src="{{ item.owner.avatar_url }}" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<import src="/templates/no-data.axml" />
+<template is="pageEmpty" data="{{emptyData}}" />
